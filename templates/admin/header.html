@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href='{% static "css/styles.css" %}'>
+    <title>Admin</title>
+</head>
+<body>
+    <a href="#" class="scrolltop" id="scroll-top">
+        <i class='bx bx-chevron-up scrolltop__icon'></i>
+    </a>
+<header class="l-header" id="header">
+            <nav class="nav bd-container">
+                <a href="#" class="nav__logo">Tasty</a>
+                
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="/admin_dashboard" class="nav__link active-link">Home</a></li>
+                        {% comment %} <li class="nav__item"><a href="/aboutus" class="nav__link">About</a></li> {% endcomment %}
+                        {% comment %} <li class="nav__item"><a href="/service" class="nav__link">Services</a></li> {% endcomment %}
+                        <li class="nav__item"><a href="/admin_menu" class="nav__link">Menu</a></li>
+                        <li class="nav__item"><a href="/admin_event" class="nav__link">Events</a></li>
+                        <li class="nav__item"><a href="{% url 'logout' %}" class="nav__link">Logout</a></li>
+
+                        <li><i class='bx bx-moon change-theme' id="theme-button"></i></li>
+                        {% comment %} <li><h6>Welcome {{name}}</h6></li> {% endcomment %}
+                    </ul>
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </nav>
+            </header>
+          
+            <script src="{% static 'js/main.js' %}"></script>
+            
+            <!--========== SCROLL REVEAL ==========-->
+            <script src="https://unpkg.com/scrollreveal"></script>
+            
+            <!--========== MAIN JS ==========-->
+            <script src="{% static 'js/main.js' %}"></script>
+            <script>
+                let slideIndex = 0;
+                        showSlides();
+            
+                        function showSlides() {
+                         let i;
+                        let slides = document.getElementsByClassName("mySlides");
+                        for (i = 0; i < slides.length; i++) {
+                        slides[i].style.display = "none";
+                        }
+                        slideIndex++;
+                         if (slideIndex > slides.length) {slideIndex = 1}
+                        slides[slideIndex-1].style.display = "block";
+                        setTimeout(showSlides, 3000); // Change image every 2 seconds
+                        }
+            </script>
+</body>
+</html>
+    

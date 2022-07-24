@@ -1,0 +1,68 @@
+
+{%load static%}
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"></head>
+    
+    
+      <style media="screen">
+        a:link {
+          text-decoration: none;
+        }
+    
+        h6 {
+          text-align: center;
+        }
+    
+        .row {
+          margin: 100px;
+        }
+      </style>
+    </head>
+    <body>
+      {% if messages %}
+      {% for message in messages %}
+       {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+
+      {% endfor %}
+
+  {% endif %}
+        {% include 'header.html' %}
+        <br><br><br>
+    <div class="container">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h2 style="color:white;" class="panel-title text-center"><b>Booking Status</b></h2><br><br>
+        </div>
+        <table class="table table-hover" id="dev-table">
+          <thead>
+            <tr class="bg-success">
+    
+              <th>Name</th>
+              
+              <th>Contact Number</th>
+              <th>Function</th>
+              <th>Date</th>
+              <th>Status</th>
+              <th><center>Cancel Booking</center></th>
+              
+            </tr>
+          </thead>
+          {% for t in data %}
+          <tr class="table-success">
+    
+            <td><b> {{t.user.first_name}}<b></td>
+            <td><b> {{t.number}}<b></td>
+            <td><b>{{t.f_name}}<b></td>
+            <td><b>{{t.date}}<b></td>
+            <td><b>{{t.status}}<b></td>
+                <td><center><a class="btn btn-danger btn-xs" href="{% url 'delete_booking' t.id  %}"><i class="fas fa-trash"></i></a></center></td>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+    <br><br><br><br>
+</body>
+{% comment %} {% include 'admin/footer.html' %} {% endcomment %}

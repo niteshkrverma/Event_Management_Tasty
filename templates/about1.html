@@ -1,0 +1,64 @@
+{% load static %}
+{% include 'header.html' %}
+<head>
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    
+</head>
+<section class="about section bd-container" id="about">
+    <div class="about__container  bd-grid">
+        <div class="about__data">
+            <span class="section-subtitle about__initial">About us</span>
+            <h2 class="section-title about__initial">We cook the best <br> tasty food</h2>
+            <p class="about__description">We cook the best food in the entire city, with excellent customer service, the best meals and at the best price, visit us.</p>
+            <a href="#" class="button">Explore history</a>
+        </div>
+
+        <!-- <img src="assets/img/about.jpg" alt="" class="about__img"> -->
+        <div class="slideshow-container">
+
+            <!-- Full-width images with number and caption text -->
+            <div class="mySlides fade">
+              <!-- <div class="numbertext"></div> -->
+              <img src="{% static 'foodimage/hd1.jpg' %}" style="width:500px; height: 500px; object-fit:cover; border-radius: 16px;">
+              <div class="text">Thai Steamed Fish</div>
+            </div>
+          
+            <div class="mySlides fade">
+              <!-- <div class="numbertext">2 / 3</div> -->
+              <img src="{% static 'foodimage/hd2.jpg' %}" style="width:500px; height: 500px; object-fit:cover; border-radius: 16px;">
+              <div class="text">Burgur</div>
+            </div>
+          
+            <div class="mySlides fade">
+              <!-- <div class="numbertext">3 / 3</div> -->
+              <img src="{% static 'foodimage/hd3.jpg' %}" style="width:500px ; height: 500px; object-fit:cover; border-radius: 16px;">
+              <div class="text">Roasted chicken</div>
+            </div>
+          </div>
+    </div>
+</section>
+
+
+{% include 'footer.html' %}
+
+<!--========== SCROLL REVEAL ==========-->
+<script src="https://unpkg.com/scrollreveal"></script>
+
+<!--========== MAIN JS ==========-->
+<script src="{% static 'js/main.js' %}"></script>
+<script>
+    let slideIndex = 0;
+            showSlides();
+
+            function showSlides() {
+             let i;
+            let slides = document.getElementsByClassName("mySlides");
+            for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+            }
+            slideIndex++;
+             if (slideIndex > slides.length) {slideIndex = 1}
+            slides[slideIndex-1].style.display = "block";
+            setTimeout(showSlides, 3000); // Change image every 2 seconds
+            }
+</script>
